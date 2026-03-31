@@ -1,7 +1,8 @@
 from tpt_script_generator.step import Step
 
 class TPTScript:
-    def __init__(self, job_name):
+    def __init__(self, job_name, charset=None):
+        self.charset = charset
         self.job_name = job_name
         self.description = ""
         self.variables = {}
@@ -30,7 +31,7 @@ class TPTScript:
         return self
 
     def build(self):
-        script = f"DEFINE JOB {self.job_name}\n"
+        script = f"DEFINE JOB {self.job_name}\n" if self.charset is None else f"USING CHARACTER SET {self.charset}\nDEFINE JOB {self.job_name}\n"
         script += f"DESCRIPTION '{self.description}'\n(\n"
         
         for var_name, var_value in self.variables.items():

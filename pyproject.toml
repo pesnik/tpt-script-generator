@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "tpt-script-generator"
+name = "tpt-builder"
 dynamic = ["version"]
 description = 'A python pacakge for Teradata PT script builder'
 readme = "README.md"
@@ -11,7 +11,7 @@ requires-python = ">=3.8"
 license = "MIT"
 keywords = []
 authors = [
-  { name = "Md. Rakibul Hasan", email = "hasanrakibul.masum@gmail.com" },
+  { name = "Pesnik", email = "sohandoabernahin1@gmail.com" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -33,6 +33,9 @@ Source = "https://github.com/rhasanm/tpt-script-generator"
 
 [tool.hatch.version]
 path = "src/tpt_script_generator/__about__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tpt_script_generator"]
 
 [tool.hatch.envs.types]
 extra-dependencies = [
